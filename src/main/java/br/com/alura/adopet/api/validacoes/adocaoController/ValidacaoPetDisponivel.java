@@ -1,6 +1,6 @@
-package br.com.alura.adopet.api.validacoes;
+package br.com.alura.adopet.api.validacoes.adocaoController;
 
-import br.com.alura.adopet.api.dto.SolicitacaoAdocaoDto;
+import br.com.alura.adopet.api.dto.adocao.AdocaoSolicitacaoDto;
 import br.com.alura.adopet.api.exception.ValidacaoException;
 import br.com.alura.adopet.api.model.Pet;
 import br.com.alura.adopet.api.repository.PetRepository;
@@ -12,7 +12,7 @@ public class ValidacaoPetDisponivel implements ValidacaoSolicitacaoAdocao {
 
     @Autowired
     PetRepository petRepository;
-    public void validar(SolicitacaoAdocaoDto dto) {
+    public void validar(AdocaoSolicitacaoDto dto) {
         Pet pet = petRepository.getReferenceById(dto.idPet());
 
         if (pet.getAdotado()) {

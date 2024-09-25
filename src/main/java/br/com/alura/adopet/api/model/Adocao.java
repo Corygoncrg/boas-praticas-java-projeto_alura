@@ -57,31 +57,17 @@ public class Adocao {
         return id;
     }
 
-
     public LocalDateTime getData() {
         return data;
     }
-
 
     public Tutor getTutor() {
         return tutor;
     }
 
-
     public Pet getPet() {
         return pet;
     }
-
-
-    public String getMotivo() {
-        return motivo;
-    }
-
-
-    public StatusAdocao getStatus() {
-        return status;
-    }
-
 
     public String getJustificativaStatus() {
         return justificativaStatus;

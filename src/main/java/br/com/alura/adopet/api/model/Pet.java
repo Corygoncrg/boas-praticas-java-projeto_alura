@@ -1,5 +1,6 @@
 package br.com.alura.adopet.api.model;
 
+import br.com.alura.adopet.api.dto.pet.PetCadastroDto;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -36,13 +37,14 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(TipoPet tipo, String nome, String raca, Integer idade, String cor, Float peso) {
-        this.tipo = tipo;
-        this.nome = nome;
-        this.raca = raca;
-        this.idade = idade;
-        this.cor = cor;
-        this.peso = peso;
+    public Pet(PetCadastroDto dto, Abrigo abrigo) {
+        this.tipo = dto.tipo();
+        this.nome = dto.nome();
+        this.raca = dto.raca();
+        this.idade = dto.idade();
+        this.cor = dto.cor();
+        this.peso = dto.peso();
+        this.abrigo = abrigo;
         this.adotado = false;
     }
 

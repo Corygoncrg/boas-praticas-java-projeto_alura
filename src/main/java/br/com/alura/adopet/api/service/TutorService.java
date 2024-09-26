@@ -19,7 +19,7 @@ public class TutorService {
 
     public void cadastrar(TutorCadastroDto dto) {
         validacao.validar(dto);
-            Tutor tutor = new Tutor(dto.nome(), dto.telefone(), dto.email());
+            Tutor tutor = new Tutor(dto);
             repository.save(tutor);
 
     }

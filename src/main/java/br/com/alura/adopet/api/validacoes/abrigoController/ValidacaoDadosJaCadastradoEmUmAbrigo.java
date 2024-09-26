@@ -11,11 +11,9 @@ public class ValidacaoDadosJaCadastradoEmUmAbrigo {
     private AbrigoRepository repository;
 
     public void validar(AbrigoCadastroDto dto) {
-        boolean nomeJaCadastrado = repository.existsByNome(dto.nome());
-        boolean telefoneJaCadastrado = repository.existsByTelefone(dto.telefone());
-        boolean emailJaCadastrado = repository.existsByEmail(dto.email());
+        boolean jaCadastrado = repository.existsByNomeOrTelefoneOrEmail(dto.nome(), dto.telefone(), dto.email());
 
-        if (nomeJaCadastrado || telefoneJaCadastrado || emailJaCadastrado) {
+        if (jaCadastrado) {
             throw new ValidacaoException("Dados já cadastrados para outro abrigo!");
         }
     }

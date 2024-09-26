@@ -11,10 +11,9 @@ public class ValidacaoDadosJaCadastradoEmUmTutor {
     TutorRepository repository;
 
     public void validar(TutorCadastroDto dto) {
-        boolean telefoneJaCadastrado = repository.existsByTelefone(dto.telefone());
-        boolean emailJaCadastrado = repository.existsByEmail(dto.email());
+        boolean jaCadastrado = repository.existsByTelefoneOrEmail(dto.telefone(), dto.email());
 
-        if (telefoneJaCadastrado || emailJaCadastrado) {
+        if (jaCadastrado) {
             throw new ValidacaoException("Dados já cadastrados para outro tutor!");
         }
     }

@@ -37,7 +37,7 @@ public class AbrigoService {
 
     public void cadastrar(AbrigoCadastroDto dto) {
         validacao.validar(dto);
-        Abrigo abrigo = new Abrigo(dto.nome(), dto.telefone(), dto.email());
+        Abrigo abrigo = new Abrigo(dto);
         repository.save(abrigo);
     }
 
@@ -63,8 +63,7 @@ public class AbrigoService {
     public void cadastrarPet(String idOuNome, PetCadastroDto dto) {
         try {
             Abrigo abrigo = repository.encontrarAbrigoPorIdOuNome(Long.parseLong(idOuNome), idOuNome);
-            Pet pet = new Pet(dto.tipo(), dto.nome(),dto.raca(), dto.idade(),dto.cor(), dto.peso());
-            pet.setAbrigo(abrigo);
+            Pet pet = new Pet(dto, abrigo);
             abrigo.getPets().add(pet);
             repository.save(abrigo);
         } catch (EntityNotFoundException enfe) {

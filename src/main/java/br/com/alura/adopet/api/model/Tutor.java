@@ -1,6 +1,7 @@
 package br.com.alura.adopet.api.model;
 
 import br.com.alura.adopet.api.dto.tutor.TutorAtualizacaoDto;
+import br.com.alura.adopet.api.dto.tutor.TutorCadastroDto;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -27,10 +28,10 @@ public class Tutor {
     public Tutor() {
     }
 
-    public Tutor(String nome, String telefone, String email) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
+    public Tutor(TutorCadastroDto dto) {
+        this.nome = dto.nome();
+        this.telefone = dto.telefone();
+        this.email = dto.email();
     }
 
     public void atualizar(TutorAtualizacaoDto dto) {
